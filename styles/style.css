@@ -1,0 +1,74 @@
+/* CSS Document */
+
+/*********/
+/* FONTS */
+/*********/
+@font-face {
+	font-family: 'eenfont';
+	src: url('../fonts/kodakku-webfont.woff2') format('woff2'),
+			 url('../fonts/kodakku-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+/**************/
+/* CSS REMEDY */
+/**************/
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+button:not(:disabled), summary {
+	cursor: pointer;
+}
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	/* startje */
+	--color-text:#ED0000;
+	--color-background:#FFBF00;
+}
+
+
+/****************/
+/* JOUW STYLING */
+/****************/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: eenfont, sans-serif;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+	word-spacing: -1.5vw;
+	font-size: 10vw;
+	padding: 0.4em 0.4em 0 0.4em;
+
+	border-bottom: 0.1em solid var(--color-text);;
+}
+
+/* voor later
+span {
+	
+}
+
+span:first-of-type {
+
+
+	
+}
