@@ -5,42 +5,34 @@
 /*********/
 @font-face {
 	font-family: 'eenfont';
-	src: url('../fonts/kodakku-webfont.woff2') format('woff2'),
-			 url('../fonts/kodakku-webfont.woff') format('woff');
+	src: url('../fonts/eenfont.woff2') format('woff2'),
+		url('../fonts/eenfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-
 }
-
 
 /**************/
 /* CSS REMEDY */
 /**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
 }
 
-button:not(:disabled), summary {
+button:not(:disabled),
+summary {
 	cursor: pointer;
 }
-
 
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
 	/* startje */
-    --font: eenfont, sans-serif;
-    --font-size: 10vw;
-
-    --color-text:#ED0000;
-	--color-background:#FFBF00;
-
-    --color-camera-body: #b1b0b0;
-    --color-camera-middle: #393237;
-    --color-camera-lens: #797979;
+	--color-text: #111;
+	--color-background: #eee;
 }
-
 
 /****************/
 /* JOUW STYLING */
@@ -50,333 +42,204 @@ button:not(:disabled), summary {
 	padding: 0;
 }
 
-/* achtergrond */
 body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font);
-  
-  /*om content in het midden te zetten*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-
-  animation: flits infinite 4s;
+	background-color: #BFBFBF;
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
 }
 
-/* animatie flits */
-@keyframes flits{	
-0% {
-    background-color: var(--color-background);
-}
-50% {
-    background-color: var(--color-background);
+/*navigatie*/
+nav {
+	background-color: #F2A2A2;
+	padding: 1em;
 }
 
-53% {
-    background-color: #816000;
-}
-55% {
-    background-color:#ffffff;
-}
-57%{
-    background-color: #816000;
-}
-58% {
-    background-color: #ffffff;
-}
-60% {
-    background-color: var(--color-background);
-
-}
+nav a {
+	font-size: 1.2em;
+	text-decoration: none;
 }
 
+nav a:visited {
+	color: rgb(0, 0, 0);
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+li:first-child {
+	margin-right: auto;
+}
+
+/*text styling*/
 h1 {
-	/*om letters dichterbij elkaar te krijgen*/
-    display:flex;
-    align-items: center;
-	font-size: var(--font-size);
-	padding: 0.5em 0.5em 0.1em 0.5em;
-
-	/* bewegende border animatie https://codepen.io/paolocavanna/pen/qNKryX */
-	background-repeat: no-repeat;
-    background-image:   linear-gradient(to right, var(--color-text) 100%, var(--color-background) 100%),
-                        linear-gradient(to bottom, var(--color-text) 100%,var(--color-background) 100%),
-                        linear-gradient(to right,var(--color-text) 100%, var(--color-background) 100%),
-                        linear-gradient(to bottom, var(--color-text) 100%, var(--color-background) 100%);
-    background-size:    100% 0.1em,
-                        0.1em 100%,
-                        100% 0.1em,
-                        0.1em 100%;
-    background-position:    0 0,
-                            100% 0,
-                            100% 100%,
-                            0 100%;
-    animation: border 2s cubic-bezier(0.19, 1, 0.22, 1) 1;
-	animation-iteration-count: infinite;
+	font-size: 1.7em;
+	margin: 1em 0.5em;
 }
 
-/* animatie border */
-@keyframes border {
-    25% {
-        background-size:    100% 0.1em,
-							0.1em 0,
-    }
-    50% {
-        background-size:    0 0.1em,
-                            0.1em 0;
-    }
-    75% {
-        background-size:    100% 0.1em,
-							0.1em 100%,                           
-    }
-    100% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            100% 0.1em,
-                            0.1em 100%;  
-    }
+p {
+	font-size: 1.3em;
+	margin-bottom: 1em;
 }
 
-/*Camera gemaakt met emoticon 
-
-h1::after {
-    content: "📸";
-    display:inline-block;
-    font-size: 0.5em;
-    animation: camera 4s ease infinite ;
-}
-
-*/
-
-/* KODAK woordmerk */
-span:first-of-type, span:nth-of-type(2), span:nth-of-type(3), span:nth-of-type(4), span:nth-of-type(5) {
-	position: relative;
-    margin-right: 10px;
+#contentbutton {
+	width: 15em;
+	height: 2em;
+	font-size: 1.5em;
+	margin: 1.7em;
+	color: white;
+	background-color: rgb(74, 74, 74);
+	border-radius: 20px;
+	border: none;
 	
-	animation: omhoogbewegen 2s ease infinite;
+	transition: ease 0.3s;
 }
 
-span:nth-of-type(2) {
-	animation-delay: 0.5s;
+#contentbutton:hover {
+	background-color: #F2A2A2;
+	color: black;
 }
 
-span:nth-of-type(3) {
-	animation-delay: 0.75s;
+#contentbox {
+	max-width: 41.6em;
+	max-height: 40em;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 20em 20em;
+	grid-template-rows: 20em 20em;
+	column-gap: 0.5em;
+	row-gap: 0.5em;
+	overflow: scroll;
+	overflow-x: hidden;
+	
 }
 
-span:nth-of-type(4) {
-	animation-delay: 1s;
+/*Styling verticale scrollbars*/
+::-webkit-scrollbar {
+	width: 10px;
 }
 
-span:nth-of-type(5) {	
-	animation-delay: 1.25s;
+::-webkit-scrollbar-track {
+	background: rgb(74, 74, 74);
 }
 
 
-/* animatie letters die bewegen */
-@keyframes omhoogbewegen {
+::-webkit-scrollbar-thumb {
+	background: #F2A2A2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+
+img {
+	/*Maakt de foto's allemaal dezelfde grootte en zorgt ervoor dat de foto's niet vervormd worden*/
+	width: 20em;
+	height: 20em;
+	object-fit: cover;
+}
+
+section {
+	/*Zorgt ervoor dat het menu aan de rechterkant staat*/
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	height: 100%;
+	padding: 1em;
+
+	background-color: white;
+
+	visibility: hidden;
+
+	overflow: scroll;
+
+	/*Zet het kruisje in het midden*/
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+}
+
+section ul {
+	/*Zorgt ervoor dat de foto's in het favo lijstje in een grid staan*/
+	display: grid;
+	grid-template-columns: 20em 20em;
+	grid-template-rows: 20em 20em;
+	gap: 1em;
+}
+
+section>ul:empty::after {
+	/*Zorgt ervoor dat de tekst in het midden van het lege favo lijstje staat en dat die niet breder kan worden dan 16 em*/
+	content: "sleep je favo foto's naar dit lijstje";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 16em;
+}
+
+#favobutton {
+	margin: 0;
+	height: 1.5em;
+	width: 7em;
+	font-size: 1.2em;
+	background-color: #F2A2A2;
+	border: none;
+}
+
+#hamburgersluiten {
+	background: white;
+	border: none;
+}
+
+#hamburgersluiten img {
+	width: 1em;
+	height: 1em;
+}
+
+/*Animatie voor het verwijderen van de foto's*/
+.vliegweg {
+	animation: vliegweg 3s;
+}
+
+@keyframes vliegweg {
 	0% {
-		bottom: -0.2em; color: var(--color-background);
-		opacity: 1;
+		transform: translate(0, 0);
 	}
-    50% {
-		bottom: 0.3em;
-	}
-    100% {
-		bottom: 0; color: var(--color-text);
-		opacity: 1;
+
+	100% {
+		transform: translate(-150vw, -150vh) rotateZ(5000deg);
 	}
 }
 
-/*Camera gemaakt met een div*/
-div {
-  width: 1em;
-  height: 0.6em;
-  background-color: var(--color-camera-body);
-  border-radius: 10%;
-  position: relative;
-  animation: camera 4s ease infinite;
-  margin-left: 0.3em;
+/*zorgt voor responsiveness*/
+@media(max-width: 1500px) {
+	section {
+		width: 22em;
+		padding: 1em;
+		padding-right: 1.7em;
+	}
+
+	section ul{
+		display: block;
+		width: 19em;
+		height: 19em;
+	}
+
 }
 
-div::before {
-  content: "";
-  position: absolute;
-  top: 0.1em;
-  width: 1em;
-  height: 0.4em;
-  background-color: var(--color-camera-middle);
+@media (max-width: 720px) {
+	#contentbox {
+		display: block;
+		max-width: 20em;
+		height: 35em;
+	}
+	section {
+		width: 20em;
+		padding-right: 1em;
+	}
 }
-
-div::after{
-  content: "";
-  position: absolute;
-  top: 0.08em;
-  left: 27%;
-  width: 0.45em;
-  height: 0.45em;
-  border: 0.07em solid var(--color-camera-lens);
-  background-color: #000000;
-  border-radius: 50%;
-}
-
-/* animatie camera */
-@keyframes camera {
-    0% { 
-        opacity: 0;
-        font-size: 0;
-        transform: rotate(0deg);
-    }
-    50% { 
-        opacity: 1;
-        font-size: 0.8em;
-        transform: rotate(360deg);
-    }
-
-    75% {
-        opacity: 1;
-        font-size: 0.8em;
-        transform: rotate(360deg);
-    }
-
-    100% {
-        opacity: 0;
-        font-size: 0;
-        transform: rotate(0deg);
-    }
-  }
-
-/* dark mode */
-@media (prefers-color-scheme: dark) {
-   
-    /* grijze achtergrondkleur */
-    body {
-        background-color: var(--color-camera-middle);
-    }
-
-    /* aangepaste, minder heldere flits animatie */
-    @keyframes flits{	
-        0% {
-            background-color: var(--color-camera-middle);
-        }
-        50% {
-            background-color: var(--color-camera-middle);
-        }
-        
-        53% {
-            background-color: #2d2d2d;
-        }
-        55% {
-            background-color:#4a4a4a;
-        }
-        57%{
-            background-color: #2e2e2e;
-        }
-        58% {
-            background-color: #4a4a4a;
-        }
-        60% {
-            background-color: var(--color-camera-middle);
-        
-        }
-    }  
-    
-    /* animatie KODAK aangepast naar achtergrondkleur */
-    @keyframes omhoogbewegen {
-        0% {
-            bottom: -0.2em; 
-            color: var(--color-camera-middle);
-            opacity: 1;
-        }
-        50% {
-            bottom: 0.3em;
-        }
-        100% {
-            bottom: 0; 
-            color: var(--color-text);
-            opacity: 1;
-        }
-    }
-
-    /* midden van de camera in de kleur van de tekst */
-    div::before {
-        background-color: var(--color-text); 
-    }
-}
-
-/* border beweeg animatie (niet helemaal wat ik wil)
-{
-background-repeat: no-repeat;
-    background-image:   linear-gradient(to right, #C9C9C9 100%, #C9C9C9 100%),
-                        linear-gradient(to bottom, #C9C9C9 100%, #C9C9C9 100%),
-                        linear-gradient(to right, #C9C9C9 100%, #C9C9C9 100%),
-                        linear-gradient(to bottom, #C9C9C9 100%, #C9C9C9 100%);
-    background-size:    100% 3px,
-                        3px 100%,
-                        100% 3px,
-                        3px 100%;
-    background-position:    0 0,
-                            100% 0,
-                            100% 100%,
-                            0 100%;
-    animation: bg 1.25s cubic-bezier(0.19, 1, 0.22, 1) 1;
-	animation-iteration-count: infinite;
-}
-
-@keyframes bg {
-    0% {
-        background-size:    0 0.1em,
-							0.1em 0,
-                            0 0.1em,
-                            0.1em 0;
-    }
-    25% {
-        background-size:    100% 0.1em,
-							0.1em 0,
-                            0 0.1em,
-                            0.1em 0;
-    }
-    50% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            0 0.1em,
-                            0.1em 0;
-    }
-    75% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            100% 0.1em,
-                            0.1em 0;
-    }
-    100% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            100% 0.1em,
-                            0.1em 100%;  
-    }
-}
-
-/*@keyframes flits{	
-    0% {
-        background-color: var(--color-background);
-    }
-    25% {
-        background-color: #816000;
-    }
-    75% {
-        background-color: white;
-    }
-    90% {
-        background-color: #816000;
-    }
-    100% {
-        background-color: white;
-    }
-    }
-
-animation: flits;
-animation-duration: 0.5s;
-animation-delay: 2s;
-animation-iteration-count: 1; */
