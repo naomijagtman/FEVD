@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="jouw naam">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Opdracht 2: Interactie galore - Frontend voor Designers</title>
+
+  <link href="styles/style.css" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Poppins:wght@300;400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Hondencontent Generator</a>
+        </li>
+        <li>
+          <button id="favobutton">favo lijstje</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1 id="datumvanvandaag"></h1>
+  <p>Welkom terug, hier is je dagelijkse dosis hondencontent!</p>
+  <ul id="contentbox"></ul>
+  <button id="contentbutton">Nog een!</button>
+
+  <section>
+    <button id="hamburgersluiten">
+      <img src="images/hamburgerdicht.svg" alt="hamburgerdicht">
+    </button>
+    <ul id="favolijstje"></ul>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script defer src="scripts/script.js"></script>
+</body>
+
+</html>

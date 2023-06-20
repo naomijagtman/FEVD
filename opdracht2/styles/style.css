@@ -1,0 +1,245 @@
+/* CSS Document */
+
+/*********/
+/* FONTS */
+/*********/
+@font-face {
+	font-family: 'eenfont';
+	src: url('../fonts/eenfont.woff2') format('woff2'),
+		url('../fonts/eenfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/**************/
+/* CSS REMEDY */
+/**************/
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+button:not(:disabled),
+summary {
+	cursor: pointer;
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	/* startje */
+	--color-text: #111;
+	--color-background: #eee;
+}
+
+/****************/
+/* JOUW STYLING */
+/****************/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #BFBFBF;
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+}
+
+/*navigatie*/
+nav {
+	background-color: #F2A2A2;
+	padding: 1em;
+}
+
+nav a {
+	font-size: 1.2em;
+	text-decoration: none;
+}
+
+nav a:visited {
+	color: rgb(0, 0, 0);
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+li:first-child {
+	margin-right: auto;
+}
+
+/*text styling*/
+h1 {
+	font-size: 1.7em;
+	margin: 1em 0.5em;
+}
+
+p {
+	font-size: 1.3em;
+	margin-bottom: 1em;
+}
+
+#contentbutton {
+	width: 15em;
+	height: 2em;
+	font-size: 1.5em;
+	margin: 1.7em;
+	color: white;
+	background-color: rgb(74, 74, 74);
+	border-radius: 20px;
+	border: none;
+	
+	transition: ease 0.3s;
+}
+
+#contentbutton:hover {
+	background-color: #F2A2A2;
+	color: black;
+}
+
+#contentbox {
+	max-width: 41.6em;
+	max-height: 40em;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 20em 20em;
+	grid-template-rows: 20em 20em;
+	column-gap: 0.5em;
+	row-gap: 0.5em;
+	overflow: scroll;
+	overflow-x: hidden;
+	
+}
+
+/*Styling verticale scrollbars*/
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgb(74, 74, 74);
+}
+
+
+::-webkit-scrollbar-thumb {
+	background: #F2A2A2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+
+img {
+	/*Maakt de foto's allemaal dezelfde grootte en zorgt ervoor dat de foto's niet vervormd worden*/
+	width: 20em;
+	height: 20em;
+	object-fit: cover;
+}
+
+section {
+	/*Zorgt ervoor dat het menu aan de rechterkant staat*/
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	height: 100%;
+	padding: 1em;
+
+	background-color: white;
+
+	visibility: hidden;
+
+	overflow: scroll;
+
+	/*Zet het kruisje in het midden*/
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+}
+
+section ul {
+	/*Zorgt ervoor dat de foto's in het favo lijstje in een grid staan*/
+	display: grid;
+	grid-template-columns: 20em 20em;
+	grid-template-rows: 20em 20em;
+	gap: 1em;
+}
+
+section>ul:empty::after {
+	/*Zorgt ervoor dat de tekst in het midden van het lege favo lijstje staat en dat die niet breder kan worden dan 16 em*/
+	content: "sleep je favo foto's naar dit lijstje";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 16em;
+}
+
+#favobutton {
+	margin: 0;
+	height: 1.5em;
+	width: 7em;
+	font-size: 1.2em;
+	background-color: #F2A2A2;
+	border: none;
+}
+
+#hamburgersluiten {
+	background: white;
+	border: none;
+}
+
+#hamburgersluiten img {
+	width: 1em;
+	height: 1em;
+}
+
+/*Animatie voor het verwijderen van de foto's*/
+.vliegweg {
+	animation: vliegweg 3s;
+}
+
+@keyframes vliegweg {
+	0% {
+		transform: translate(0, 0);
+	}
+
+	100% {
+		transform: translate(-150vw, -150vh) rotateZ(5000deg);
+	}
+}
+
+/*zorgt voor responsiveness*/
+@media(max-width: 1500px) {
+	section {
+		width: 22em;
+		padding: 1em;
+		padding-right: 1.7em;
+	}
+
+	section ul{
+		display: block;
+		width: 19em;
+		height: 19em;
+	}
+
+}
+
+@media (max-width: 720px) {
+	#contentbox {
+		display: block;
+		max-width: 20em;
+		height: 35em;
+	}
+	section {
+		width: 20em;
+		padding-right: 1em;
+	}
+}
