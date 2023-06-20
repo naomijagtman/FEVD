@@ -19,25 +19,31 @@ dateElement.textContent = formattedDate;
 //Zodra je op de knop klikt komt er nieuwe content
 contentbutton.addEventListener('click', nieuwecontent)
 
+//Zodra je op enter klikt komt er nieuwe content 
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        nieuwecontent();
+    }
+});
+
 //Functie content genereren en toevoegen zodra er op de knop wordt geklikt
 function nieuwecontent() {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            
+
             //Zorgt ervoor dat de URL gesplit wordt waardoor de .jpg .mp4 .webm etc aan het einde van de functie aangesproken kan worden
             var deUrlArray = data.url.split(".");
             var extensie = deUrlArray[deUrlArray.length - 1];
 
             //Als de url eindigt op .mp4 of .webm opnieuw een url genereren (deze moeten eruit gefilterd worden aangezien ze niet werken op de site)
-            if (extensie == "mp4" || extensie == "webm" )
-            {
+            if (extensie == "mp4" || extensie == "webm") {
                 nieuwecontent();
             } else {
                 //Zorgt ervoor dat de content wordt toegevoegd in plaats van vervangen en de onclick laat de foto verdwijnen
                 contentbox.insertAdjacentHTML('afterbegin', `<li onclick="fotoverwijderen(this)"><img src="${data.url}"/></li>`);
             }
-            
+
         })
 }
 
@@ -49,7 +55,6 @@ function fotoverwijderen(element) {
     element.classList.add('vliegweg')
 
     setTimeout(() => element.remove(), 2000)
-    // element.remove();
 }
 
 //Toon de dropdown als er op de tekst geklikt wordt
@@ -58,7 +63,7 @@ const favodropdown = document.querySelector("section");
 
 favobutton.addEventListener('click', dropdown)
 
-function dropdown(){
+function dropdown() {
     favodropdown.style.visibility = "visible";
 }
 
@@ -67,7 +72,7 @@ const hamburgersluiten = document.getElementById("hamburgersluiten")
 
 hamburgersluiten.addEventListener('click', sluitdropdown);
 
-function sluitdropdown (){
+function sluitdropdown() {
     favodropdown.style.visibility = "hidden";
 }
 
