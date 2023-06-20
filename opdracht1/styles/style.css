@@ -4,24 +4,26 @@
 /* FONTS */
 /*********/
 @font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/kodakku-webfont.woff2') format('woff2'),
-			 url('../fonts/kodakku-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'eenfont';
+    src: url('../fonts/kodakku-webfont.woff2') format('woff2'),
+        url('../fonts/kodakku-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
 }
-
 
 /**************/
 /* CSS REMEDY */
 /**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
 }
 
-button:not(:disabled), summary {
-	cursor: pointer;
+button:not(:disabled),
+summary {
+    cursor: pointer;
 }
 
 
@@ -29,15 +31,14 @@ button:not(:disabled), summary {
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
-	/* startje */
+    /* startje */
     --font: eenfont, sans-serif;
     --font-size: 10vw;
 
-    --color-text:#ED0000;
-	--color-background:#FFBF00;
+    --color-text: #ED0000;
+    --color-background: #FFBF00;
 
     --color-camera-body: #b1b0b0;
-    --color-camera-middle: #393237;
     --color-camera-lens: #797979;
 }
 
@@ -46,190 +47,196 @@ button:not(:disabled), summary {
 /* JOUW STYLING */
 /****************/
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* achtergrond */
 body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font);
-  
-  /*om content in het midden te zetten*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font);
 
-  animation: flits infinite 4s;
+    /*om content in het midden te zetten*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    animation: flits infinite 4s;
 }
 
 /* animatie flits */
-@keyframes flits{	
-0% {
-    background-color: var(--color-background);
-}
-50% {
-    background-color: var(--color-background);
-}
+@keyframes flits {
+    0% {
+        background-color: var(--color-background);
+    }
 
-53% {
-    background-color: #816000;
-}
-55% {
-    background-color:#ffffff;
-}
-57%{
-    background-color: #816000;
-}
-58% {
-    background-color: #ffffff;
-}
-60% {
-    background-color: var(--color-background);
+    50% {
+        background-color: var(--color-background);
+    }
 
-}
+    53% {
+        background-color: #816000;
+    }
+
+    55% {
+        background-color: #ffffff;
+    }
+
+    57% {
+        background-color: #816000;
+    }
+
+    58% {
+        background-color: #ffffff;
+    }
+
+    60% {
+        background-color: var(--color-background);
+
+    }
 }
 
 h1 {
-	/*om letters dichterbij elkaar te krijgen*/
-    display:flex;
+    /*om letters dichterbij elkaar te krijgen*/
+    display: flex;
     align-items: center;
-	font-size: var(--font-size);
-	padding: 0.5em 0.5em 0.1em 0.5em;
+    font-size: var(--font-size);
+    padding: 0.5em 0.5em 0.1em 0.5em;
 
-	/* bewegende border animatie https://codepen.io/paolocavanna/pen/qNKryX */
-	background-repeat: no-repeat;
-    background-image:   linear-gradient(to right, var(--color-text) 100%, var(--color-background) 100%),
-                        linear-gradient(to bottom, var(--color-text) 100%,var(--color-background) 100%),
-                        linear-gradient(to right,var(--color-text) 100%, var(--color-background) 100%),
-                        linear-gradient(to bottom, var(--color-text) 100%, var(--color-background) 100%);
-    background-size:    100% 0.1em,
-                        0.1em 100%,
-                        100% 0.1em,
-                        0.1em 100%;
-    background-position:    0 0,
-                            100% 0,
-                            100% 100%,
-                            0 100%;
+    /* bewegende border animatie https://codepen.io/paolocavanna/pen/qNKryX */
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, var(--color-text) 100%, var(--color-background) 100%),
+        linear-gradient(to bottom, var(--color-text) 100%, var(--color-background) 100%),
+        linear-gradient(to right, var(--color-text) 100%, var(--color-background) 100%),
+        linear-gradient(to bottom, var(--color-text) 100%, var(--color-background) 100%);
+    background-size: 100% 0.1em,
+        0.1em 100%,
+        100% 0.1em,
+        0.1em 100%;
+    background-position: 0 0,
+        100% 0,
+        100% 100%,
+        0 100%;
     animation: border 2s cubic-bezier(0.19, 1, 0.22, 1) 1;
-	animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 
 /* animatie border */
 @keyframes border {
     25% {
-        background-size:    100% 0.1em,
-							0.1em 0,
+        background-size: 100% 0.1em,
+            0.1em 0,
     }
+
     50% {
-        background-size:    0 0.1em,
-                            0.1em 0;
+        background-size: 0 0.1em,
+            0.1em 0;
     }
+
     75% {
-        background-size:    100% 0.1em,
-							0.1em 100%,                           
+        background-size: 100% 0.1em,
+            0.1em 100%,
     }
+
     100% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            100% 0.1em,
-                            0.1em 100%;  
+        background-size: 100% 0.1em,
+            0.1em 100%,
+            100% 0.1em,
+            0.1em 100%;
     }
 }
-
-/*Camera gemaakt met emoticon 
-
-h1::after {
-    content: "📸";
-    display:inline-block;
-    font-size: 0.5em;
-    animation: camera 4s ease infinite ;
-}
-
-*/
 
 /* KODAK woordmerk */
-span:first-of-type, span:nth-of-type(2), span:nth-of-type(3), span:nth-of-type(4), span:nth-of-type(5) {
-	position: relative;
+span:first-of-type,
+span:nth-of-type(2),
+span:nth-of-type(3),
+span:nth-of-type(4),
+span:nth-of-type(5) {
+    position: relative;
     margin-right: 10px;
-	
-	animation: omhoogbewegen 2s ease infinite;
+
+    animation: omhoogbewegen 2s ease infinite;
 }
 
 span:nth-of-type(2) {
-	animation-delay: 0.5s;
+    animation-delay: 0.5s;
 }
 
 span:nth-of-type(3) {
-	animation-delay: 0.75s;
+    animation-delay: 0.75s;
 }
 
 span:nth-of-type(4) {
-	animation-delay: 1s;
+    animation-delay: 1s;
 }
 
-span:nth-of-type(5) {	
-	animation-delay: 1.25s;
+span:nth-of-type(5) {
+    animation-delay: 1.25s;
 }
 
 
 /* animatie letters die bewegen */
 @keyframes omhoogbewegen {
-	0% {
-		bottom: -0.2em; color: var(--color-background);
-		opacity: 1;
-	}
+    0% {
+        bottom: -0.2em;
+        color: var(--color-background);
+        opacity: 1;
+    }
+
     50% {
-		bottom: 0.3em;
-	}
+        bottom: 0.3em;
+    }
+
     100% {
-		bottom: 0; color: var(--color-text);
-		opacity: 1;
-	}
+        bottom: 0;
+        color: var(--color-text);
+        opacity: 1;
+    }
 }
 
 /*Camera gemaakt met een div*/
 div {
-  width: 1em;
-  height: 0.6em;
-  background-color: var(--color-camera-body);
-  border-radius: 10%;
-  position: relative;
-  animation: camera 4s ease infinite;
-  margin-left: 0.3em;
+    width: 1em;
+    height: 0.6em;
+    background-color: var(--color-camera-body);
+    border-radius: 10%;
+    position: relative;
+    animation: camera 4s ease infinite;
+    margin-left: 0.3em;
 }
 
 div::before {
-  content: "";
-  position: absolute;
-  top: 0.1em;
-  width: 1em;
-  height: 0.4em;
-  background-color: var(--color-camera-middle);
+    content: "";
+    position: absolute;
+    top: 0.1em;
+    width: 1em;
+    height: 0.4em;
+    background-color: var(--color-text);
 }
 
-div::after{
-  content: "";
-  position: absolute;
-  top: 0.08em;
-  left: 27%;
-  width: 0.45em;
-  height: 0.45em;
-  border: 0.07em solid var(--color-camera-lens);
-  background-color: #000000;
-  border-radius: 50%;
+div::after {
+    content: "";
+    position: absolute;
+    top: 0.08em;
+    left: 27%;
+    width: 0.45em;
+    height: 0.45em;
+    border: 0.07em solid var(--color-camera-lens);
+    background-color: #000000;
+    border-radius: 50%;
 }
 
 /* animatie camera */
 @keyframes camera {
-    0% { 
+    0% {
         opacity: 0;
         font-size: 0;
         transform: rotate(0deg);
     }
-    50% { 
+
+    50% {
         opacity: 1;
         font-size: 0.8em;
         transform: rotate(360deg);
@@ -246,146 +253,46 @@ div::after{
         font-size: 0;
         transform: rotate(0deg);
     }
-  }
+}
 
 /* dark mode */
 @media (prefers-color-scheme: dark) {
-   
-    /* grijze achtergrondkleur */
-    body {
-        background-color: var(--color-camera-middle);
+    :root {
+        --color-text: #ED0000;
+        --color-background: #393237;
+
+        --color-camera-body: #b1b0b0;
+        --color-camera-lens: #797979;
     }
 
-    /* aangepaste, minder heldere flits animatie */
-    @keyframes flits{	
+    @keyframes flits {
         0% {
-            background-color: var(--color-camera-middle);
+            background-color: var(--color-background);
         }
+
         50% {
-            background-color: var(--color-camera-middle);
+            background-color: var(--color-background);
         }
-        
+
         53% {
             background-color: #2d2d2d;
         }
+
         55% {
-            background-color:#4a4a4a;
+            background-color: #4a4a4a;
         }
-        57%{
+
+        57% {
             background-color: #2e2e2e;
         }
+
         58% {
             background-color: #4a4a4a;
         }
+
         60% {
-            background-color: var(--color-camera-middle);
-        
-        }
-    }  
-    
-    /* animatie KODAK aangepast naar achtergrondkleur */
-    @keyframes omhoogbewegen {
-        0% {
-            bottom: -0.2em; 
-            color: var(--color-camera-middle);
-            opacity: 1;
-        }
-        50% {
-            bottom: 0.3em;
-        }
-        100% {
-            bottom: 0; 
-            color: var(--color-text);
-            opacity: 1;
+            background-color: var(--color-background);
+
         }
     }
-
-    /* midden van de camera in de kleur van de tekst */
-    div::before {
-        background-color: var(--color-text); 
-    }
 }
-
-/* border beweeg animatie (niet helemaal wat ik wil)
-{
-background-repeat: no-repeat;
-    background-image:   linear-gradient(to right, #C9C9C9 100%, #C9C9C9 100%),
-                        linear-gradient(to bottom, #C9C9C9 100%, #C9C9C9 100%),
-                        linear-gradient(to right, #C9C9C9 100%, #C9C9C9 100%),
-                        linear-gradient(to bottom, #C9C9C9 100%, #C9C9C9 100%);
-    background-size:    100% 3px,
-                        3px 100%,
-                        100% 3px,
-                        3px 100%;
-    background-position:    0 0,
-                            100% 0,
-                            100% 100%,
-                            0 100%;
-    animation: bg 1.25s cubic-bezier(0.19, 1, 0.22, 1) 1;
-	animation-iteration-count: infinite;
-}
-
-@keyframes bg {
-    0% {
-        background-size:    0 0.1em,
-							0.1em 0,
-                            0 0.1em,
-                            0.1em 0;
-    }
-    25% {
-        background-size:    100% 0.1em,
-							0.1em 0,
-                            0 0.1em,
-                            0.1em 0;
-    }
-    50% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            0 0.1em,
-                            0.1em 0;
-    }
-    75% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            100% 0.1em,
-                            0.1em 0;
-    }
-    100% {
-        background-size:    100% 0.1em,
-							0.1em 100%,
-                            100% 0.1em,
-                            0.1em 100%;  
-    }
-}
-
-/*@keyframes flits{	
-    0% {
-        background-color: var(--color-background);
-    }
-    25% {
-        background-color: #816000;
-    }
-    75% {
-        background-color: white;
-    }
-    90% {
-        background-color: #816000;
-    }
-    100% {
-        background-color: white;
-    }
-    }
-
-animation: flits;
-animation-duration: 0.5s;
-animation-delay: 2s;
-animation-iteration-count: 1; */
-
-h1 {
-backgroynd image :(linear gradient)
-kleur
-kleur
-kleur
-}
-
-baclground-image meerdere op 1 element (h1:after)

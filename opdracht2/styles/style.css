@@ -30,8 +30,12 @@ summary {
 /*********************/
 :root {
 	/* startje */
-	--color-text: #111;
-	--color-background: #eee;
+	--color-text: #000000;
+	--color-background: #BFBFBF;
+	--color-pink: #F2A2A2;
+	--color-white: #ffffff;
+	--color-scrollbar-track: #9a9a9a;
+	--color-scrollbar-thumb-hover: #555;
 }
 
 /****************/
@@ -43,24 +47,22 @@ summary {
 }
 
 body {
-	background-color: #BFBFBF;
+	background-color: var(--color-background);
 	text-align: center;
 	font-family: 'Poppins', sans-serif;
+	overflow: hidden;
 }
 
 /*navigatie*/
 nav {
-	background-color: #F2A2A2;
+	background-color: var(--color-pink);
 	padding: 1em;
 }
 
-nav a {
+li {
+	color: var(--color-text);
 	font-size: 1.2em;
 	text-decoration: none;
-}
-
-nav a:visited {
-	color: rgb(0, 0, 0);
 }
 
 ul {
@@ -77,44 +79,48 @@ li:first-child {
 /*text styling*/
 h1 {
 	font-size: 1.7em;
-	margin: 1em 0.5em;
+	margin: 0.5em;
+	color: var(--color-text);
 }
 
 p {
 	font-size: 1.3em;
 	margin-bottom: 1em;
+	color: var(--color-text);
 }
 
 #contentbutton {
 	width: 15em;
 	height: 2em;
 	font-size: 1.5em;
-	margin: 1.7em;
-	color: white;
-	background-color: rgb(74, 74, 74);
+	margin: 1.7em 1.7em 1em 1.7em;
+	color: var(--color-text);
+	background-color: var(--color-pink);
 	border-radius: 20px;
 	border: none;
-	
+
 	transition: ease 0.3s;
 }
 
 #contentbutton:hover {
-	background-color: #F2A2A2;
-	color: black;
+	background-color: var(--color-scrollbar-thumb-hover);
+	color: var(--color-pink);
 }
 
 #contentbox {
-	max-width: 41.6em;
-	max-height: 40em;
+	max-width: 44.5em;
+	max-height: 41em;
 	margin: auto;
 	display: grid;
-	grid-template-columns: 20em 20em;
-	grid-template-rows: 20em 20em;
-	column-gap: 0.5em;
-	row-gap: 0.5em;
+	grid-template-columns: 17em 17em;
+	grid-template-rows: 18em 18em;
+	column-gap: 5.5em;
+	row-gap: 4.5em;
 	overflow: scroll;
+
+	/*haalt horizontale scrollbar weg */
 	overflow-x: hidden;
-	
+
 }
 
 /*Styling verticale scrollbars*/
@@ -123,42 +129,42 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-	background: rgb(74, 74, 74);
+	background: var(--color-scrollbar-track);
 }
 
-
 ::-webkit-scrollbar-thumb {
-	background: #F2A2A2;
+	background: var(--color-pink);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #555;
+	background: var(--color-scrollbar-thumb-hover);
 }
 
 
 img {
 	/*Maakt de foto's allemaal dezelfde grootte en zorgt ervoor dat de foto's niet vervormd worden*/
-	width: 20em;
-	height: 20em;
+	width: 18em;
+	height: 18em;
 	object-fit: cover;
 }
 
 section {
-	/*Zorgt ervoor dat het menu aan de rechterkant staat*/
+	/*Zorgt ervoor dat het hamburgermenu aan de rechterkant staat*/
 	position: fixed;
 	top: 0;
 	right: 0;
 
 	height: 100%;
-	padding: 1em;
+	padding: 1em 2.5em 1em 1em;
 
-	background-color: white;
+	background-color: var(--color-white);
 
 	visibility: hidden;
 
 	overflow: scroll;
+	overflow-x: hidden;
 
-	/*Zet het kruisje in het midden*/
+	/*Zet het kruisje aan de rechter kant*/
 	display: flex;
 	align-items: flex-end;
 	flex-direction: column;
@@ -169,11 +175,11 @@ section ul {
 	display: grid;
 	grid-template-columns: 20em 20em;
 	grid-template-rows: 20em 20em;
-	gap: 1em;
+	gap: 2em;
 }
 
 section>ul:empty::after {
-	/*Zorgt ervoor dat de tekst in het midden van het lege favo lijstje staat en dat die niet breder kan worden dan 16 em*/
+	/*Zorgt ervoor dat het menu rechts tevoorschijn komt, de tekst in het midden van het lege favo lijstje staat en dat de tekst niet breder kan worden dan 16 em*/
 	content: "sleep je favo foto's naar dit lijstje";
 	position: absolute;
 	left: 50%;
@@ -187,12 +193,13 @@ section>ul:empty::after {
 	height: 1.5em;
 	width: 7em;
 	font-size: 1.2em;
-	background-color: #F2A2A2;
+	color: var(--color-text);
+	background-color: var(--color-pink);
 	border: none;
 }
 
 #hamburgersluiten {
-	background: white;
+	background: var(--color-white);
 	border: none;
 }
 
@@ -219,12 +226,12 @@ section>ul:empty::after {
 /*zorgt voor responsiveness*/
 @media(max-width: 1500px) {
 	section {
-		width: 22em;
+		width: 24em;
 		padding: 1em;
-		padding-right: 1.7em;
+		padding-right: 3.5em;
 	}
 
-	section ul{
+	section ul {
 		display: block;
 		width: 19em;
 		height: 19em;
@@ -233,13 +240,28 @@ section>ul:empty::after {
 }
 
 @media (max-width: 720px) {
+
 	#contentbox {
 		display: block;
 		max-width: 20em;
 		height: 35em;
 	}
+
 	section {
 		width: 20em;
 		padding-right: 1em;
+	}
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+
+	:root {
+		--color-white: #808080;
+		--color-background: #393939;
+		--color-pink: #1a1f47;
+		--color-text: #ffffff;
+		--color-scrollbar-track: #4a4a4a;
+		--color-scrollbar-thumb-hover: #656565;
 	}
 }
